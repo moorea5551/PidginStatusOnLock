@@ -11,7 +11,7 @@ def screensaver_changed(state):
 	try:
 		proc = subprocess.Popen(["purple-remote getstatus"], stdout=subprocess.PIPE, shell=True)
 		(out, err) = proc.communicate()
-		if out == "available\n" and out != 'do not disturb\n':
+		if out == "available\n" and out != 'unavailable\n':
 			os.system("purple-remote 'setstatus?status=away'")
 		else:
 			os.system("purple-remote 'setstatus?status=available'")
